@@ -2,10 +2,11 @@ var gameData = {
     taskData: {},
     itemData: {},
 
-    coins: 0,
+    coins: 1000000000000000000000000000000000
+,
     days: 365 * 14,
-    evil: 0,
-	essence: 0,
+    evil: 10000000000000000000000000000000000000000000000000000000000000000000000,
+	essence: 100000000000000000000000000000000000000000000,
     paused: false,
     timeWarpingEnabled: false,
 
@@ -34,49 +35,48 @@ const updateSpeed = 20
 
 const baseLifespan = 365 * 70
 
-const baseGameSpeed = 4
+const baseGameSpeed = 20
 
 const permanentUnlocks = ["Scheduling", "Shop", "Automation", "Quick task display"]
 
 const jobBaseData = {
-    "Beggar": {name: "Beggar", maxXp: 50, income: 5},
+    "Beggar": {name: "Beggar", maxXp: 500000000, income: 5},
     "Farmer": {name: "Farmer", maxXp: 100, income: 9},
     "Fisherman": {name: "Fisherman", maxXp: 200, income: 15},
     "Miner": {name: "Miner", maxXp: 400, income: 40},
     "Blacksmith": {name: "Blacksmith", maxXp: 800, income: 80},
     "Merchant": {name: "Merchant", maxXp: 1600, income: 150},
 
-    "Squire": {name: "Squire", maxXp: 100, income: 5},
-    "Footman": {name: "Footman", maxXp: 1000, income: 50},
-    "Veteran footman": {name: "Veteran footman", maxXp: 10000, income: 120},
-    "Centenary": {name: "Centenary", maxXp: 100000, income: 300},
-    "Knight": {name: "Knight", maxXp: 1000000, income: 1000},
-    "Veteran Knight": {name: "Veteran Knight", maxXp: 7500000, income: 3000},
-    "Holy Knight": {name: "Holy Knight", maxXp: 40000000, income: 5000},
-    "Lieutenant General": {name: "Lieutenant General", maxXp: 150000000, income: 50000},
+    "Squire": {name: "Squire", maxXp: 10000000000, income: 5000000000000000000000000},
+    "Footman": {name: "Footman", maxXp: 10000000000000000, income: 50},
+    "Veteran footman": {name: "Veteran footman", maxXp: 1000000000000, income: 1200000000000000000},
+    "Centenary": {name: "Centenary", maxXp: 1000000000000000000, income: 30000000000000},
+    "Knight": {name: "Knight", maxXp: 100000000000000000000000, income: 1000},
+    "Veteran Knight": {name: "Veteran Knight", maxXp: 750000000000000000000000000000, income: 3000},
+    "Holy Knight": {name: "Holy Knight", maxXp: 4000000000000000000000, income: 5000},
+    "Lieutenant General": {name: "Lieutenant General", maxXp: 1500000000000000000000000000000000, income: 50000},
 
-    "Student": {name: "Student", maxXp: 100000, income: 100},
-    "Apprentice Mage": {name: "Apprentice Mage", maxXp: 1000000, income: 1000},
-    "Adept Mage": {name: "Adept Mage", maxXp: 10000000, income: 9500},
-    "Master Wizard": {name: "Master Wizard", maxXp: 100000000, income: 70000},
-    "Archmage": {name: "Archmage", maxXp: 10000000000, income: 350000},
-	"Chronomancer": {name: "Chronomancer", maxXp: 2000000000000, income: 1000000},
-    "Chairman": {name: "Chairman", maxXp: 20000000000000, income: 10000000},
-	"Imperator": {name: "Imperator", maxXp: 9000000000000000, income: 60000000},
+    "Student": {name: "Student", maxXp: 100000000000000000000000000, income: 100},
+    "Apprentice Mage": {name: "Apprentice Mage", maxXp: 100000000000000000000000000000000000, income: 1000},
+    "Adept Mage": {name: "Adept Mage", maxXp: 100000000000000000000000000000000000000000000, income: 9500},
+    "Master Wizard": {name: "Master Wizard", maxXp: 10000000000000000000000000000000000000000000000000, income: 70000},
+    "Archmage": {name: "Archmage", maxXp: 100000000000000000000000000000000000000000000000000000000000000000000000000, income: 350000},
+	"Chronomancer": {name: "Chronomancer", maxXp: 2000000000000000000000000000000000000000000000000000000000000000000000000000000000000, income: 1000000},
+    "Chairman": {name: "Chairman", maxXp: 2000000000000000000000000000000000000000000000000000000000000000, income: 100000000000000000000},
+	"Imperator": {name: "Imperator", maxXp: 90000000000000000000000000000000000000000000000000000000, income: 600000000000000000000000000000000000000000},
 	
-	"Corrupted": {name: "Corrupted", maxXp: 100000000000000, income: 25000000},
-    "Void Slave": {name: "Void Slave", maxXp: 650000000000000, income: 200000000}, 
-    "Void Fiend": {name: "Void Fiend", maxXp: 18000000000000000, income: 600000000}, 
-    "Abyss Anomaly": {name: "Abyss Anomaly", maxXp: 18000000000000000, income: 1200000000}, 
-	"Void Wraith": {name: "Void Wraith", maxXp: 180000000000000000, income: 5000000000}, 
-    "Void Reaver": {name: "Void Reaver", maxXp: 2600000000000000000, income: 25000000000}, 
-	"Void Lord": {name: "Void Lord", maxXp: 28000000000000000000, income: 100000000000},
-	"Abyss God": {name: "Abyss God", maxXp: 400000000000000000000, income: 1000000000000},
+	"Corrupted": {name: "Corrupted", maxXp: 100000000000000000000000000000000000000000000000000000000, income: 2500000000000000000000000000000000000000000},
+    "Void Slave": {name: "Void Slave", maxXp: 65000000000000000000000000000000000000000000000000000000000000000, income: 2000000000000000000000000000000000000}, 
+    "Void Fiend": {name: "Void Fiend", maxXp: 180000000000000000000000000000000000000000000, income: 600000000000000000000000000000000}, 
+    "Abyss Anomaly": {name: "Abyss Anomaly", maxXp: 180000000000000000000000000000000000000000000000000000000000000, income: 1200000000000000000000000000000000000}, 
+	"Void Wraith": {name: "Void Wraith", maxXp: 180000000000000000000000000000000000000000000000000000000, income: 5000000000}, 
+    "Void Reaver": {name: "Void Reaver", maxXp: 260000000000000000000000000000000000000000000000000000000, income: 25000000000000000000000000000000}, 
+	"Void Lord": {name: "Void Lord", maxXp: 28000000000000000000000000000000000000000000000000000000000000000000000, income: 1000000000000000000000000000000000000},
+	"Abyss God": {name: "Abyss God", maxXp: 4000000000000000000000000000000000000000000000000000000000000000000000000000000000, income: 100000000000000000000000000000000000000000000000000000000000000000000000000},
 
 
 
-
-	"Eternal Wanderer": {name: "Eternal Wanderer", maxXp: 55000000000000000000, income: 1000000000000},
+	"Eternal Wanderer": {name: "Eternal Wanderer", maxXp: 550000000000000000000, income: 1000000000000},
     "Nova": {name: "Nova", maxXp: 51000000000000000000, income: 3000000000000},
     "Sigma Proioxis": {name: "Sigma Proioxis", maxXp: 500000000000000000000, income: 25000000000000},
 	"Acallaris": {name: "Acallaris", maxXp: 50000000000000000000000, income: 215000000000000},
@@ -87,25 +87,25 @@ const jobBaseData = {
 }
 
 const skillBaseData = {
-    "Concentration": {name: "Concentration", maxXp: 100, effect: 0.01, description: "Ability XP"},
-    "Productivity": {name: "Productivity", maxXp: 100, effect: 0.01, description: "Class XP"},
-    "Bargaining": {name: "Bargaining", maxXp: 100, effect: -0.01, description: "Reduced Expenses"},
-    "Meditation": {name: "Meditation", maxXp: 100, effect: 0.01, description: "Happiness"},
+    "Concentration": {name: "Concentration", maxXp: 100, effect: 1888, description: "Ability XP"},
+    "Productivity": {name: "Productivity", maxXp: 100, effect: 20000, description: "Class XP"},
+    "Bargaining": {name: "Bargaining", maxXp: 100, effect: -1, description: "Reduced Expenses"},
+    "Meditation": {name: "Meditation", maxXp: 100, effect:0. 100, description: "Happiness"},
 
-    "Strength": {name: "Strength", maxXp: 100, effect: 0.01, description: "Military Pay"},
+    "Strength": {name: "Strength", maxXp: 100, effect: 10000000, description: "Military Pay"},
     "Battle Tactics": {name: "Battle Tactics", maxXp: 100, effect: 0.01, description: "Military XP"},
     "Muscle Memory": {name: "Muscle Memory", maxXp: 100, effect: 0.01, description: "Strength XP"},
 
-    "Mana Control": {name: "Mana Control", maxXp: 100, effect: 0.01, description: "T.A.A. XP"},
-    "Life Essence": {name: "Life Essence", maxXp: 100, effect: 0.01, description: "Longer Lifespan"},
-    "Time Warping": {name: "Time Warping", maxXp: 100, effect: 0.01, description: "Gamespeed"},
-    "Astral Body": {name: "Astral Body", maxXp: 100, effect: 0.0035, description: "Longer lifespan"},
+    "Mana Control": {name: "Mana Control", maxXp: 100, effect: 10000000000000, description: "T.A.A. XP"},
+    "Life Essence": {name: "Life Essence", maxXp: 100, effect: 3000000000000000000, description: "Longer Lifespan"},
+    "Time Warping": {name: "Time Warping", maxXp: 100, effect: 0.5, description: "Gamespeed"},
+    "Astral Body": {name: "Astral Body", maxXp: 100, effect: 50035, description: "Longer lifespan"},
 	"Temporal Dimension": {name: "Temporal Dimension", maxXp: 100, effect: 0.025, description: "Gamespeed"},
-	"All Seeing Eye": {name: "All Seeing Eye", maxXp: 100, effect: 0.0027, description: "T.A.A Pay"},
-	"Brainwashing": {name: "Brainwashing", maxXp: 100, effect: -0.01, description: "Reduced Expenses"},
+	"All Seeing Eye": {name: "All Seeing Eye", maxXp: 100, effect: 555888000, description: "T.A.A Pay"},
+	"Brainwashing": {name: "Brainwashing", maxXp: 100, effect: -55, description: "Reduced Expenses"},
 	
-	"Absolute Wish": {name: "Absolute Wish", maxXp: 100, effect: 0.005, description: "Evil Gain"},
-    "Void Amplification": {name: "Void Amplification", maxXp: 100, effect: 0.01, description: "The Void XP"},
+	"Absolute Wish": {name: "Absolute Wish", maxXp: 100, effect: 5000, description: "Evil Gain"},
+    "Void Amplification": {name: "Void Amplification", maxXp: 100, effect:1000000, description: "The Void XP"},
     "Mind Seize": {name: "Mind Seize", maxXp: 100, effect: 0.0006, description: "Reduced Happiness"},
 	"Ceaseless Abyss": {name: "Ceaseless Abyss", maxXp: 100, effect: 0.000585, description: "Longer Lifespan"},
 	"Void Symbiosis": {name: "Void Symbiosis", maxXp: 100, effect: 0.0015, description: "Ability XP"},
